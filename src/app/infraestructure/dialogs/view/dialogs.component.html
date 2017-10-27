@@ -1,0 +1,36 @@
+<div [ngClass]="{headergreen: type==1,headerred: type==2,headerblue: type==3}" ></div>
+
+<div class="mensaje" *ngIf="isQuestion">
+  <!-- <h3 style="text-align:center"><b><i>{{ title }}</i></b></h3> -->
+  <div class="" style="width:100%;text-align:center">
+    <img *ngIf="icon==1" src="assets/img/Ok.png" width="50px">
+    <img *ngIf="icon==2" src="assets/img/AlertRed.png" width="50px">
+    <img *ngIf="icon==3" src="assets/img/warninginfo.png" width="50px">
+    <img *ngIf="icon==4" src="assets/img/Question.png" width="50px">
+    <img *ngIf="icon==5" src="assets/img/QuestionError.png" width="50px">
+    <br>
+    <br>
+    <p class="question">{{ message }}</p>
+    <br>
+    <button (click)="Cancel()" type="button" name="button" class="btn btn-danger bigbutton">Close</button>
+    <button (click)="Ok()" type="button" name="button" class="btn btn-success bigbutton">Ok</button>
+
+  </div>
+</div>
+
+<div class="mensaje" *ngIf="!isQuestion">
+  <!-- <h3 style="text-align:center"><b><i>{{ title }}</i></b></h3> -->
+  <div class="" style="width:100%;text-align:center">
+    <img *ngIf="icon==1" src="assets/img/Ok.png" width="50px">
+    <img *ngIf="icon==2" src="assets/img/AlertRed.png" width="50px">
+    <img *ngIf="icon==3" src="assets/img/warninginfo.png" width="50px">
+    <img *ngIf="icon==4" src="assets/img/Question.png" width="50px">
+    <img *ngIf="icon==5" src="assets/img/QuestionError.png" width="50px">
+    <br>
+    <br>
+    <p class="question">{{ message }}</p>
+    <br>
+    <button (click)="Ok()" type="button" name="button" class="btn btn-success bigbutton">Ok</button>
+
+  </div>
+</div>

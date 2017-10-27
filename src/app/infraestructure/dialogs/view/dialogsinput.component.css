@@ -1,0 +1,33 @@
+.headergreen{
+  background-color: #77C121;
+    height: 3%;
+    position: static;
+    /*margin-top: -6%;*/
+    width: 100%;
+}
+
+.headerred{
+  background-color: #D30000;
+    height: 3%;
+    position: static;
+    /*margin-top: -6%;*/
+    width: 100%;
+}
+
+.headerblue{
+  background-color: #008697;
+    height: 3%;
+    position: static;
+    /*margin-top: -6%;*/
+    width: 100%;
+}
+.mensaje{
+  padding: 4%;
+  text-align: center;
+}
+
+.question{
+  font-size: 25px;
+  font-style: italic;
+  font-weight: bold;
+}
