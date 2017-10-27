@@ -10,7 +10,7 @@ import {UserComponent} from './ekis/users/component/user.component';
 import {AuthGuard} from './guards/authguard';
 
 const app_routes: Routes = [
-  { path: 'home', component: HomeComponent,canActivate:[AuthGuard] },
+  { path: 'home', component: HomeComponent },
    { path: 'login', component: LoginComponent },
   { path: 'moredev', component: MoreDevComponent },
   { path: 'user', component: UserComponent },
