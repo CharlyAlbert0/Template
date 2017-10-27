@@ -1,0 +1,32 @@
+
+<style media="screen">
+  .mainc{
+        padding: 1em;
+  }
+</style>
+
+<div class="mainc">
+  <h2>Global Attributes</h2>
+  <hr>
+  <p-dataTable [value]="ListGlobals" [editable]="true">
+    <p-column field="Name" header="Name" [editable]="true"></p-column>
+    <p-column field="Value" header="Value" [editable]="true"></p-column>
+    <p-column field="Description" header="Description" [editable]="true"></p-column>
+    <p-column styleClass="col-button">
+        <ng-template pTemplate="header">
+            <!-- <button type="button" pButton icon="fa-refresh"></button> -->
+            <img src="assets/img/ref.svg"
+             width="30px" alt="" tooltipPosition="top"  (click)="Refresh()" tooltipStyleClass="tooltop2" showDelay="90" pTooltip="Refresh" style="cursor:pointer;">
+        </ng-template>
+        <ng-template let-user="rowData" pTemplate="body">
+          <div class="" style="width:100%; text-align:center">
+            <!-- editar -->
+            <img src="assets/img/Edit.png" (click)="Update(ListGlobals)"
+             width="25px" alt=""tooltipPosition="left" pTooltip="Update" style="cursor:pointer;padding:2px">
+          </div>
+            <!-- <button type="button" pButton (click)="selectUserTable(user)" icon="fa-search"></button> -->
+        </ng-template>
+    </p-column>
+</p-dataTable>
+
+</div>
