@@ -1,5 +1,5 @@
 {
-  "APIURL": "http://localhost:4747/api/",
+  "APIURL": "http://192.168.1.114:4747/api/",
   "SSOURL": "http://192.168.1.216/DEV/APPLICATIONS/TOKEN_SSO/token",
   "ISDEVQA":1,
   "IDLE":20,

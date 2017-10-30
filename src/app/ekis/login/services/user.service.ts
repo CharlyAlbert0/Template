@@ -89,6 +89,24 @@ debugger
 
   }
 
+  GetUsers(): Observable<UserModel[]>{
+    debugger
+    let headers = new Headers();
+    headers.append('Content-Type','application/json');
+    // headers.append('authorization', 'bearer ' + localStorage.getItem('token'))
+    headers.append('Accept', 'application/json')
+    let options = new RequestOptions( {method: RequestMethod.Post, headers: headers });
+
+    // let options = new RequestOptions( {method: RequestMethod.Post, headers: headers });
+    return this.http.post(this.urlApi+'LimitRules/GetUsers?version=1', options)
+    .map(res =>  {
+      debugger
+      console.log(res.json());
+      return res.json() as UserModel[]
+    }).catch(this.handleError);
+
+  }
+
   private handleError(error: any): Promise<any> {
     debugger
     alert('Ok: '+error.ok+', ErrorBody: '+error._body+', tipo: '+error.type+', status: '+error.status+', statusText:'+error.statusText); // for demo purposes only

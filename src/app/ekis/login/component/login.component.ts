@@ -32,15 +32,15 @@ export class LoginComponent implements OnInit {
         //this.authenticationService.logout();
 
         // get return url from route parameters or default to '/'
-        //this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
 
         //
 
-        // setTimeout(() => {
-        //
-        //   this.checkThereIsConfig();
-        //
-        // }, 2000);
+        setTimeout(() => {
+
+          this.checkThereIsConfig();
+
+        }, 2000);
 
 
 
@@ -77,30 +77,50 @@ export class LoginComponent implements OnInit {
         this.loading = true;
         // setTimeout(()=> this.loading=false,3000);
 
-        setTimeout(() => {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // setTimeout(() => {
           debugger
-           this.loading=false;
+            this.loading=false;
             this.userlogin.user=this.model.username;
             this.userlogin.password=this.model.password;
-            localStorage.setItem('currentUser', 'data');
-            this.router.navigate(['/home']);
-            // this.userService.Login(this.userlogin)
-            // .subscribe(
-            //         data => {
-            //           debugger
-            //           if(data !=null){
-            //             localStorage.setItem('currentUser', data);
-            //             this.router.navigate(['/home']);
-            //           }
-            //
-            //         },
-            //         error => {
-            //             this.alertService.error(error);
-            //             this.loading = false;
-            //         });
+            // localStorage.setItem('currentUser', 'data');
+            // this.router.navigate(['/home']);
+            this.userService.Login(this.userlogin)
+            .subscribe(
+                    data => {
+                      debugger
+                      if(data !=null){
+                        localStorage.setItem('currentUser', data);
+                        this.router.navigate(['/home']);
+                      }
+                      else{
+                        alert('credenciales invalidas');
+                      }
 
 
-        }, 3000);
+                    },
+                    error => {
+                        this.alertService.error(error);
+                        this.loading = false;
+                    });
+
+
+        // }, 3000);
         //   localStorage.setItem('currentUser', 'this.token.access_token');
         //  this.router.navigate(['/home']);
 

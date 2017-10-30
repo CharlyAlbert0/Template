@@ -1,1 +1,85 @@
-<b>Login</b>
+
+
+<!-- <div class="row"> -->
+<nav class="navbar navbar-default" style="background-color: #52d3cd;">
+  <div class="navbar-header">
+    <!-- Mobile Toggle Menu Button -->
+    <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
+    <a class="navbar-brand" style="color:white" href="index.html"><b>EKIS CORP</b></a>
+  </div>
+  <div id="navbar" class="navbar-collapse collapse">
+    <ul class="nav navbar-nav navbar-right">
+
+    </ul>
+  </div>
+</nav>
+<!-- </div> -->
+<div *ngIf="version!=null" class="animated fadeIn slow" style="width:20em;padding-left:2%">
+  <div class="alert alert-info" style="position: fixed; width: 20%;" role="alert">
+    <h4 class="alert-heading">Api Conection</h4>
+    <hr>
+    <p class="mb-0">{{version}}</p>
+  </div>
+</div>
+
+<div class="container animated fadeIn slow" style="width:50%">
+
+  <div class="col-md-6 col-md-offset-3">
+    <div class="" style="text-align:center">
+      <img src="https://cdn0.iconfinder.com/data/icons/website-design-4/467/window_screen_lock_icon-128.png" width="120" alt="">
+    </div>
+    <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" name="username" [(ngModel)]="model.username" #username="ngModel" required />
+        <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+      </div>
+      <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required />
+        <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+      </div>
+      <div class="form-group" style="text-align:right;">
+        <!-- <button [disabled]="loading" class="btn btn-primary">Login</button> -->
+
+
+        <button class="btn btn-info" style="background-color: #52d3cd;" [disabled]="loading">
+
+          <i [ngClass]="{'fa-sign-in':!loading,'fa-refresh fa-spin':loading}" class="fa"></i>
+          <span *ngIf="!loading">Login</span>
+          <span *ngIf="loading">Loading</span>
+
+        </button>
+        <!-- <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" /> -->
+        <!-- <a [routerLink]="['/register']" class="btn btn-link">Register</a> -->
+      </div>
+    </form>
+  </div>
+
+</div>
+<br>
+<br>
+<div class="container">
+  <div class="">
+    <div class="col-md-12 text-center">
+      <b>Ambiente: {{ambiente}}</b>
+      <p>&copy; 2017 All Rights Reserved. <br>Created by <a href="#" target="_blank">Charly</a>
+      </p>
+      <i>From <a href="http://vivaaguascalientes.com/" target="_blank">Aguascalientes</a>,
+        <a href="https://www.visitmexico.com/es" target="_blank">México</a>
+        <img src="assets/images/mexico.png" width="25px" alt="">
+      </i> with
+      <img src="assets/images/heart.png" width="30px" alt="">
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <ul class="social social-circle">
+        <li><a href="#"><i class="icon-twitter"></i></a></li>
+        <li><a href="#"><i class="icon-facebook"></i></a></li>
+        <li><a href="#"><i class="icon-youtube"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
