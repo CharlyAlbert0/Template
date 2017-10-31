@@ -2,6 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { Ng2TableModule } from 'ng2-table/ng2-table';
+import { PaginationModule,PaginationConfig } from 'ng2-bootstrap/ng2-bootstrap';
+import { TabsModule } from 'ng2-bootstrap/ng2-bootstrap';
+
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './ekis/home/component/home.component';
@@ -52,8 +56,11 @@ import {AuthGuard} from './guards/authguard';
     MatStepperModule,
     ReactiveFormsModule,
     app_routing,
+    PaginationModule,
+    Ng2TableModule,
+    TabsModule
   ],
-  providers: [DialogsService,AuthGuard,AlertService,AuthenticationService,UserService],
+  providers: [DialogsService,AuthGuard,AlertService,AuthenticationService,UserService,PaginationConfig],
   entryComponents:[DialogError,DialogDevelopComponent],
   bootstrap: [AppComponent]
 })

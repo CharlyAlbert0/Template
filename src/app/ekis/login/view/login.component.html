@@ -22,7 +22,7 @@
   </div>
 </div>
 
-<div class="container animated fadeIn slow" style="width:50%">
+<div class="container animated fadeIn slow" style="width:50%" *ngIf="canloggin">
 
   <div class="col-md-6 col-md-offset-3">
     <div class="" style="text-align:center">
@@ -56,6 +56,9 @@
     </form>
   </div>
 
+</div>
+<div class="container animated fadeIn slow" style="width:50%" *ngIf="!canloggin">
+  <img src="/assets/images/error2.gif" alt="">
 </div>
 <br>
 <br>
