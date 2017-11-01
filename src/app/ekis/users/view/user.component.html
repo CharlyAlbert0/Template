@@ -41,8 +41,17 @@
 
             <p-dataTable [value]="ListUser" [rows]="10" [paginator]="true" [globalFilter]="gb" #dt>
                 <p-column field="nombre" header="nombre (startsWith)" [filter]="true" filterPlaceholder="Search nombre"></p-column>
-                  <p-column field="user" header="user (startsWith)" [filter]="true" filterPlaceholder="Search user"></p-column>
-              
+                <p-column field="user" header="user (startsWith)" [filter]="true" filterPlaceholder="Search user"></p-column>
+                <p-column styleClass="col-button">
+                  <ng-template  pTemplate="header">
+                            <button type="button" (click)="GetUsers()" pButton icon="fa-refresh"></button>
+                  </ng-template>
+
+                  <ng-template let-userSelected="rowData" pTemplate="body">
+                            <button type="button" pButton (click)="DeleteUser(userSelected)" icon="fa fa-trash-o"></button>
+                  </ng-template>
+                </p-column>
+
             </p-dataTable>
 
               </div>

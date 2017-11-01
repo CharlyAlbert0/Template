@@ -107,6 +107,43 @@ debugger
 
   }
 
+  AddUser(user:UserModel): Observable<string>{
+    debugger
+    let headers = new Headers();
+    headers.append('Content-Type','application/json');
+    // headers.append('authorization', 'bearer ' + localStorage.getItem('token'))
+    headers.append('Accept', 'application/json')
+    let options = new RequestOptions( {method: RequestMethod.Post, headers: headers });
+
+    // let options = new RequestOptions( {method: RequestMethod.Post, headers: headers });
+    return this.http.post(this.urlApi+'LimitRules/SendUser?version=1',user, options)
+    .map(res =>  {
+      debugger
+      console.log(res.json());
+      return res.json() as string
+    }).catch(this.handleError);
+
+  }
+
+  DeleteUser(user:UserModel): Observable<string>{
+    debugger
+    let headers = new Headers();
+    headers.append('Content-Type','application/json');
+    // headers.append('authorization', 'bearer ' + localStorage.getItem('token'))
+    headers.append('Accept', 'application/json')
+    let options = new RequestOptions( {method: RequestMethod.Post, headers: headers });
+
+    // let options = new RequestOptions( {method: RequestMethod.Post, headers: headers });
+    return this.http.post(this.urlApi+'LimitRules/DeleteUser?version=1',user, options)
+    .map(res =>  {
+      debugger
+      console.log(res.json());
+      return res.json() as string
+    }).catch(this.handleError);
+
+  }
+
+
   private handleError(error: any): Promise<any> {
     debugger
     alert('Ok: '+error.ok+', ErrorBody: '+error._body+', tipo: '+error.type+', status: '+error.status+', statusText:'+error.statusText); // for demo purposes only

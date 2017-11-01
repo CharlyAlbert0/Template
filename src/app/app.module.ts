@@ -34,6 +34,7 @@ import {AuthenticationService} from './ekis/login/services/authentication.servic
 import {UserService} from './ekis/login/services/user.service';
 import {AuthGuard} from './guards/authguard';
 import {DialogInput} from './infraestructure/dialogs/component/dialogsinput.component';
+import {Dialog} from './infraestructure/dialogs/component/dialogs.component';
 
 @NgModule({
   declarations: [
@@ -48,10 +49,11 @@ import {DialogInput} from './infraestructure/dialogs/component/dialogsinput.comp
     MODULE_COMPONENTS,
     LoginComponent,
     UserComponent,
-    DialogInput
+    DialogInput,
+    Dialog
 
   ],
-  exports:[DialogError,DialogDevelopComponent,DialogInput],
+  exports:[DialogError,DialogDevelopComponent,DialogInput,Dialog],
   imports: [
     BrowserModule,
     FormsModule,
@@ -70,7 +72,7 @@ import {DialogInput} from './infraestructure/dialogs/component/dialogsinput.comp
     InputTextModule
   ],
   providers: [DialogsService,AuthGuard,AlertService,AuthenticationService,UserService,PaginationConfig],
-  entryComponents:[DialogError,DialogDevelopComponent,DialogInput],
+  entryComponents:[DialogError,DialogDevelopComponent,DialogInput,Dialog],
 
   bootstrap: [AppComponent]
 })
