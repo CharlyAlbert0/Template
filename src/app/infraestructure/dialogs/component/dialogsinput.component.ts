@@ -9,13 +9,9 @@ import {InputSimpleModel} from '../model/inputsimplemodel';
 })
 export class DialogInput {
 
-    public title: string;
-    public message: string;
-    public type:number;
-    public size:number;
-    public isQuestion:boolean;
-    public icon:number;
-    public TextInput:string;
+    public user: string;
+    public nombre:string;
+    public password:string;
     public result:InputSimpleModel = new InputSimpleModel();
     constructor(public dialogRef: MdDialogRef<DialogInput>) {
 
@@ -24,7 +20,9 @@ export class DialogInput {
     Ok(){
       debugger;
         this.result.Result=true;
-        this.result.TextInput = this.TextInput;
+        // this.result.Nombre = this.nombre;
+        // this.result.User = this.user;
+        // this.result.Password = this.password;
         this.dialogRef.close(this.result);
     }
 

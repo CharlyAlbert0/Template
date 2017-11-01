@@ -5,6 +5,9 @@ import { HttpModule } from '@angular/http';
 import { Ng2TableModule } from 'ng2-table/ng2-table';
 import { PaginationModule,PaginationConfig } from 'ng2-bootstrap/ng2-bootstrap';
 import { TabsModule } from 'ng2-bootstrap/ng2-bootstrap';
+import {DataTableModule,SharedModule} from 'primeng/primeng';
+import {ButtonModule} from 'primeng/primeng';
+import {InputTextModule} from 'primeng/primeng';
 
 
 import { AppComponent } from './app.component';
@@ -30,6 +33,7 @@ import {AlertService} from './ekis/login/services/alert.service';
 import {AuthenticationService} from './ekis/login/services/authentication.service';
 import {UserService} from './ekis/login/services/user.service';
 import {AuthGuard} from './guards/authguard';
+import {DialogInput} from './infraestructure/dialogs/component/dialogsinput.component';
 
 @NgModule({
   declarations: [
@@ -43,10 +47,11 @@ import {AuthGuard} from './guards/authguard';
     DialogDevelopComponent,
     MODULE_COMPONENTS,
     LoginComponent,
-    UserComponent
+    UserComponent,
+    DialogInput
 
   ],
-  exports:[DialogError,DialogDevelopComponent],
+  exports:[DialogError,DialogDevelopComponent,DialogInput],
   imports: [
     BrowserModule,
     FormsModule,
@@ -58,10 +63,15 @@ import {AuthGuard} from './guards/authguard';
     app_routing,
     PaginationModule,
     Ng2TableModule,
-    TabsModule
+    TabsModule,
+    DataTableModule,
+    SharedModule,
+    ButtonModule,
+    InputTextModule
   ],
   providers: [DialogsService,AuthGuard,AlertService,AuthenticationService,UserService,PaginationConfig],
-  entryComponents:[DialogError,DialogDevelopComponent],
+  entryComponents:[DialogError,DialogDevelopComponent,DialogInput],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

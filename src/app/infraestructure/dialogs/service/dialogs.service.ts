@@ -140,54 +140,16 @@ export class DialogsService {
    }
 
 
-   public inputSimple(title: string, message: string, type:number,category:number,size:number,icon:number,width?:string,height?:string): Observable<InputSimpleModel> {
+   public inputSimple(): Observable<InputSimpleModel> {
 
 
-       let heightdialog:string='330px';
+       let heightdialog:string='430px';
        let widthdialog:string='500px';
-       let isQuestion:boolean=true;
-
-       if (category==EnumCategoryD.notification) {
-         isQuestion=false;
-       }
-       else {
-         isQuestion=true
-       }
-
-       if (size==EnumSizeD.medium) {
-           heightdialog='580px';
-           widthdialog ='800px'
-       }
-
-       if (size==EnumSizeD.large) {
-           heightdialog='780px';
-           widthdialog ='1000px'
-       }
-
-       if (size==EnumSizeD.xl) {
-           heightdialog='980px';
-           widthdialog ='1200px'
-       }
-
-       if (width!=undefined) {
-
-           widthdialog =width
-       }
-
-       if (height!=undefined) {
-
-         heightdialog=height;
-       }
 
        this.dialoginputRef = this.DialoginputSimple.open(DialogInput, {
          height: heightdialog,
          width: widthdialog,
        });
-       this.dialoginputRef.componentInstance.title = title;
-       this.dialoginputRef.componentInstance.message = message;
-       this.dialoginputRef.componentInstance.type = type;
-       this.dialoginputRef.componentInstance.isQuestion = isQuestion;
-       this.dialoginputRef.componentInstance.icon=icon;
 
        return this.dialoginputRef.afterClosed();
    }

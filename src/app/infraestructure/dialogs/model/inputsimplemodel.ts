@@ -1,6 +1,8 @@
 
 export class InputSimpleModel{
     Result:boolean = true;
-    TextInput:string = "";
+    User:string = "";
+    Nombre:string = "";
+    Password:string = "";
 
 }

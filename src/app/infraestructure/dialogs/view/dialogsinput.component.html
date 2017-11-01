@@ -1,38 +1,48 @@
-<div [ngClass]="{headergreen: type==1,headerred: type==2,headerblue: type==3}" ></div>
-
-<div class="mensaje" *ngIf="isQuestion">
+<!-- <div class="mensaje" > -->
   <!-- <h3 style="text-align:center"><b><i>{{ title }}</i></b></h3> -->
-  <div class="" style="width:100%;text-align:center">
-    <img *ngIf="icon==1" src="assets/img/Ok.png" width="50px">
-    <img *ngIf="icon==2" src="assets/img/AlertRed.png" width="50px">
-    <img *ngIf="icon==3" src="assets/img/warninginfo.png" width="50px">
-    <img *ngIf="icon==4" src="assets/img/Question.png" width="50px">
-    <img *ngIf="icon==5" src="assets/img/QuestionError.png" width="50px">
+  <!-- <div class="" style="width:100%;text-align:center">
     <br>
+    <input  type="text" name="TextInpu" [(ngModel)]="result.User" pInputText  />
     <br>
-    <p class="question">{{ message }}</p>
+    <input  type="text" name="TextInpu" [(ngModel)]="result.Password"  pInputText/>
+    <br>
+    <input  type="text" name="TextInpu" [(ngModel)]="result.Nombre"  pInputText/>
     <br>
     <button (click)="Cancel()" type="button" name="button" class="btn btn-danger bigbutton">Close</button>
     <button (click)="Ok()" type="button" name="button" class="btn btn-success bigbutton">Ok</button>
 
   </div>
-</div>
+</div> -->
+<h2>Add new user</h2>
+<hr>
+<div class="animated fadeIn slow">
 
-<div class="mensaje" *ngIf="!isQuestion">
-  <!-- <h3 style="text-align:center"><b><i>{{ title }}</i></b></h3> -->
-  <div class="" style="width:100%;text-align:center">
-    <img *ngIf="icon==1" src="assets/img/Ok.png" width="50px">
-    <img *ngIf="icon==2" src="assets/img/AlertRed.png" width="50px">
-    <img *ngIf="icon==3" src="assets/img/warninginfo.png" width="50px">
-    <img *ngIf="icon==4" src="assets/img/Question.png" width="50px">
-    <img *ngIf="icon==5" src="assets/img/QuestionError.png" width="50px">
-    <br>
-    <br>
-    <p class="question">{{ message }}</p>
-    <br>
-    <textarea name="TextInpu" [(ngModel)]="TextInput" rows="8" cols="80" style="width: 30em; height: 6em;"></textarea>
-    <br>
-    <button (click)="Ok()" type="button" name="button" class="btn btn-success bigbutton">Ok</button>
+    <div class="ui-inputgroup">
+      <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+      <span class="ui-float-label">
+        <input id="float-input" type="text" size="30" pInputText [(ngModel)]="result.User">
+        <label for="float-input">Username</label>
+    </span>
+    </div>
+<br>
+    <div class="ui-inputgroup">
+      <span class="ui-inputgroup-addon"><i class="fa fa-unlock-alt"></i></span>
+      <span class="ui-float-label">
+        <input id="float-input" type="password" size="30" pInputText [(ngModel)]="result.Password">
+        <label for="float-input">Password</label>
+    </span>
+    </div>
+<br>
+    <div class="ui-inputgroup">
+      <span class="ui-inputgroup-addon"><i class="fa fa-male"></i></span>
+      <span class="ui-float-label">
+        <input id="float-input" type="text" size="30" pInputText [(ngModel)]="result.Nombre">
+        <label for="float-input">Name</label>
+    </span>
+    </div>
 
-  </div>
-</div>
+    <br>
+    <div class="" style="text-align:right">
+      <button (click)="Cancel()" type="button" name="button" class="btn btn-danger bigbutton">Close</button>
+      <button (click)="Ok()" type="button" name="button" class="btn btn-success bigbutton">Ok</button>
+    </div>

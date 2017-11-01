@@ -29,7 +29,7 @@ export class DialogError {
     Ok(){
       debugger;
         this.result.Result=true;
-        this.result.TextInput = this.TextInput;
+        //this.result.TextInput = this.TextInput;
         this.dialogRef.close(this.result);
     }
 

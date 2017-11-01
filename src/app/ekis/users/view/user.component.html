@@ -8,13 +8,13 @@
           <h1 class="to-animate">
             Users Dashboard.
           </h1>
-              <div class="col-md-8 col-md-offset-2">
+              <div class="col-md-8 col-md-offset-2" style="position: absolute;top: 38%;">
 
                 <h2 style="text-align:left">Users</h2>
                 <hr>
 
 
-              <ng-table [config]="config"
+              <!-- <ng-table [config]="config"
                 (tableChanged)="onChangeTable(config)"
                 (cellClicked)="onCellClick($event)"
                 [rows]="rows" [columns]="columns">
@@ -31,7 +31,19 @@
               (pageChanged)="onChangeTable(config, $event)"
               (numPages)="numPages = $event">
             </pagination>
-            <pre *ngIf="config.paging" class="card card-block card-header">Page: {{page}} / {{numPages}}</pre>
+            <pre *ngIf="config.paging" class="card card-block card-header">Page: {{page}} / {{numPages}}</pre> -->
+            <div class="" style="text-align:left">
+                <button pButton type="button" icon="fa fa-plus" class="ui-button-secondary"  (click)="AddUser()" label="Add User">
+
+                </button>
+            </div>
+            <br>
+
+            <p-dataTable [value]="ListUser" [rows]="10" [paginator]="true" [globalFilter]="gb" #dt>
+                <p-column field="nombre" header="nombre (startsWith)" [filter]="true" filterPlaceholder="Search nombre"></p-column>
+                  <p-column field="user" header="user (startsWith)" [filter]="true" filterPlaceholder="Search user"></p-column>
+              
+            </p-dataTable>
 
               </div>
 
