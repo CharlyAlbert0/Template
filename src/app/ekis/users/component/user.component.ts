@@ -146,6 +146,106 @@ export class UserComponent implements OnInit {
 
       }
 
+      public AddUserWizard()
+      {
+        var ctx = this;
+        var nuevoUsuario: UserModel;
+
+        swal.setDefaults({
+          input: 'text',
+          confirmButtonText: 'Next &rarr;',
+          showCancelButton: true,
+          progressSteps: ['1', '2']
+        })
+
+        var steps = [
+          {
+            title: 'Por favor ingresa tus datos',
+            text: 'Nombre'
+          },
+          {
+            title: 'Por favor ingresa tus datos',
+            text: 'Contraseña'
+          }
+        ]
+        swal.queue(steps).then(function (result) {
+          swal.resetDefaults();
+
+          nuevoUsuario = new UserModel();
+          nuevoUsuario.IdUser = null;
+          nuevoUsuario.nombre=result[0];
+          nuevoUsuario.user=result[0];
+          nuevoUsuario.password=result[1];
+
+          var res = ctx.sendUser(nuevoUsuario);
+        }, function () {
+          swal.resetDefaults();
+        });
+
+      }
+
+public sendUser(user:UserModel){
+  this.userService.AddUser(user).subscribe(data =>
+    {
+      debugger;
+      if(data=="OK")
+      {
+        swal(
+          'Agregado!',
+          'Your User has been deleted.',
+          'success'
+        )}
+        else{
+          swal(
+            'Error!',
+            'Ocurrió un error.',
+            'error'
+          )}
+
+        this.GetUsers();
+    });
+ }
+
+
+ DeleteUserWizard(userSelected:UserModel){
+  var ctx = this;
+  swal({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    type: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!'
+  }).then(function () {
+    ctx.DeleteUserService(userSelected);
+  })
+ }
+
+ public DeleteUserService(userSelected:UserModel){
+   debugger;
+  this.userService.DeleteUser(userSelected).subscribe(data =>
+    {
+      debugger;
+      if(data=="OK")
+      {
+        swal(
+          'Eliminado!',
+          'Proceso completado satisfactoriamente!',
+          'success'
+        )
+      }
+        else{
+          swal(
+            'Error!',
+            'Ocurrió un error.',
+            'error'
+          )}
+
+        this.GetUsers();
+    });
+ }
+
 
 
 

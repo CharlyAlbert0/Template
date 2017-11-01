@@ -8,61 +8,75 @@
           <h1 class="to-animate">
             Users Dashboard.
           </h1>
-              <div class="col-md-8 col-md-offset-2" style="position: absolute;top: 38%;">
+          <div class="col-md-8 col-md-offset-2" style="position: absolute;top: 38%;">
 
-                <h2 style="text-align:left">Users</h2>
-                <hr>
-
-
-              <!-- <ng-table [config]="config"
-                (tableChanged)="onChangeTable(config)"
-                (cellClicked)="onCellClick($event)"
-                [rows]="rows" [columns]="columns">
-              </ng-table>
-
-              <pagination *ngIf="config.paging"
-              class="pagination-sm"
-              [(ngModel)]="page"
-              [totalItems]="length"
-              [itemsPerPage]="itemsPerPage"
-              [maxSize]="maxSize"
-              [boundaryLinks]="true"
-              [rotate]="false"
-              (pageChanged)="onChangeTable(config, $event)"
-              (numPages)="numPages = $event">
-            </pagination>
-            <pre *ngIf="config.paging" class="card card-block card-header">Page: {{page}} / {{numPages}}</pre> -->
-            <div class="" style="text-align:left">
-                <button pButton type="button" icon="fa fa-plus" class="ui-button-secondary"  (click)="AddUser()" label="Add User">
-
-                </button>
-            </div>
-            <br>
-
-            <p-dataTable [value]="ListUser" [rows]="10" [paginator]="true" [globalFilter]="gb" #dt>
-                <p-column field="nombre" header="nombre (startsWith)" [filter]="true" filterPlaceholder="Search nombre"></p-column>
-                <p-column field="user" header="user (startsWith)" [filter]="true" filterPlaceholder="Search user"></p-column>
-                <p-column styleClass="col-button">
-                  <ng-template  pTemplate="header">
-                            <button type="button" (click)="GetUsers()" pButton icon="fa-refresh"></button>
-                  </ng-template>
-
-                  <ng-template let-userSelected="rowData" pTemplate="body">
-                            <button type="button" pButton (click)="DeleteUser(userSelected)" icon="fa fa-trash-o"></button>
-                  </ng-template>
-                </p-column>
-
-            </p-dataTable>
-
-              </div>
+            <h2 style="text-align:left">Users</h2>
+            <hr>
 
 
+            <!-- <ng-table [config]="config"
+            (tableChanged)="onChangeTable(config)"
+            (cellClicked)="onCellClick($event)"
+            [rows]="rows" [columns]="columns">
+          </ng-table>
 
+          <pagination *ngIf="config.paging"
+          class="pagination-sm"
+          [(ngModel)]="page"
+          [totalItems]="length"
+          [itemsPerPage]="itemsPerPage"
+          [maxSize]="maxSize"
+          [boundaryLinks]="true"
+          [rotate]="false"
+          (pageChanged)="onChangeTable(config, $event)"
+          (numPages)="numPages = $event">
+        </pagination>
+        <pre *ngIf="config.paging" class="card card-block card-header">Page: {{page}} / {{numPages}}</pre> -->
+        <div class="" style="text-align:left">
+          <button pButton type="button" icon="fa fa-plus" class="ui-button-secondary"  (click)="AddUser()" label="Add User">
+
+          </button>
+          <button pButton type="button" icon="fa fa-plus" class="ui-button-success"  (click)="AddUserWizard()" label="Add User Wizard">
+
+          </button>
         </div>
-        <br><br>
+        <br>
+
+        <p-dataTable [value]="ListUser" [rows]="10" [paginator]="true" [globalFilter]="gb" #dt>
+          <p-column field="nombre" header="nombre (startsWith)" [filter]="true" filterPlaceholder="Search nombre"></p-column>
+          <p-column field="user" header="user (startsWith)" [filter]="true" filterPlaceholder="Search user"></p-column>
+          <p-column styleClass="col-button">
+            <ng-template  pTemplate="header">
+              <button type="button" (click)="GetUsers()" pButton icon="fa-refresh"></button>
+            </ng-template>
+
+            <ng-template let-userSelected="rowData" pTemplate="body">
+              <button type="button" pButton (click)="DeleteUser(userSelected)" icon="fa fa-trash-o"></button>
+            </ng-template>
+
+            
+          </p-column>
+          <p-column styleClass="col-button">
+            <ng-template let-userSelected="rowData" pTemplate="body">
+              <button type="button" pButton (click)="DeleteUserWizard(userSelected)" icon="fa fa-trash-o"></button>
+            </ng-template>
+
+          </p-column>
+
+
+
+
+        </p-dataTable>
 
       </div>
+
+
+
     </div>
+    <br><br>
+
   </div>
-  <div class="slant"></div>
+</div>
+</div>
+<div class="slant"></div>
 </section>
